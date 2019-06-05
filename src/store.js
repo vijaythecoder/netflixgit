@@ -31,6 +31,9 @@ export default new Vuex.Store({
     FETCH_COMMITS (state, data) {
       state.commits = data
     },
+    RESET_PAGINATION (state) {
+      state.currentPage = 1
+    },
     TOGGLE_LOADING (state, loading) {
       state.loading = loading
     },
@@ -67,7 +70,7 @@ export default new Vuex.Store({
 
       // this.loading = true
       commit('TOGGLE_LOADING', true)
-      
+      commit('RESET_PAGINATION')
       // get organization details
       axios.get('https://api.github.com/users/' + username).then(response => {
         commit('FETCH_ORGANIZATION', response.data)
