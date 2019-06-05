@@ -1,35 +1,41 @@
 <template>
-    <div class="user-info" v-if="user.login">
+    <div class="user-info" v-if="organization.login">
         <div class="organization-details">
             <div class="user-avatar">
-                <img :src="user.avatar_url" class="" alt="">
+                <img :src="organization.avatar_url" class="" alt="">
             </div>
 
             <div class="user-details">
                 <div class="user-name">
-                    {{ user.login }}
+                    {{ organization.login }}
                 </div>
-                <div class="user-bio" v-if="user.bio">
-                    {{ user.bio }}
+                <div class="user-bio" v-if="organization.bio">
+                    {{ organization.bio }}
                 </div>
                 <div class="user-bio" v-else>
-                    <a href="#">{{ user.blog }}</a>
+                    <a href="#">{{ organization.blog }}</a>
                 </div>
             </div>
         </div>
-        <div class="links">
-            <!-- <navbar></navbar> -->
+        <div class="links" v-if="$route.path !== '/'">
+            <navbar></navbar>
         </div>
     </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue'
+import { mapState } from "vuex";
 
 export default {
-  name: 'home',
+  name: 'UserInfo',
   props: {
     user: Object
+  },
+  computed: {
+    ...mapState({
+      organization: state => state.organization
+    })
   },
   components: {
     Navbar
@@ -37,7 +43,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 
 .user-info {
   background-color: white;
@@ -45,7 +51,8 @@ export default {
   padding: 10px;
   display: flex;
   justify-content: space-between;
-border: 1px solid #E6EAEE;
+  border: 1px solid #E6EAEE;
+  
   .organization-details {
     display: flex;
     .user-avatar {

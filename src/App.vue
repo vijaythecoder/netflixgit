@@ -1,12 +1,15 @@
 <template>
   <div id="app">
-    <div class="container">
-      <router-view/>
+    <div class="row">
+      <div class="container">
+        <router-view/>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'App'
 }
@@ -16,7 +19,7 @@ export default {
 @import url(./assets/style.less);
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
