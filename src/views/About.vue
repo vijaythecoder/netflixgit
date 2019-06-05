@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <navbar></navbar>
-    <h1>This is an about page</h1>
+    <h1>This is an {{ $route.params.org }} page</h1>
   </div>
 </template>
 

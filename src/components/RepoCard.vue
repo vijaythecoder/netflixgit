@@ -36,12 +36,15 @@
         <hr>
 
         <div class="repo-footer">
-          <a href="#" class="btn btn-primary">
+          <router-link :to="'/' + repo.name + '/commits'" href="#" class="btn btn-primary">
             Commits
-          </a>
+          </router-link>
           <div class="language" v-if="repo.license">
             <i class="far fa-balance-scale"></i>
             {{ repo.license.name }}
+          </div>
+          <div class="language" v-else>
+            No License
           </div>
         </div>
       </div>
@@ -71,7 +74,11 @@ export default {
 <style lang="less">
 .repo-card {
   margin-bottom: 20px;
-  
+  &:hover {
+    text-decoration: none;
+    background: #FFFFFF;
+    box-shadow: 0 1px 8px 1px rgba(198, 197, 197, 0.4);
+  }
   .repo-info {
     background-color: white;
     border-radius: 6px;

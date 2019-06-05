@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="links">
-            <navbar></navbar>
+            <!-- <navbar></navbar> -->
         </div>
     </div>
 </template>
@@ -38,13 +38,14 @@ export default {
 </script>
 
 <style lang="less">
+
 .user-info {
   background-color: white;
   border-radius: 6px;
   padding: 10px;
   display: flex;
   justify-content: space-between;
-
+border: 1px solid #E6EAEE;
   .organization-details {
     display: flex;
     .user-avatar {
