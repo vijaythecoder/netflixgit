@@ -29,7 +29,7 @@ Currently this application has the following features
   - Navigate through all the pages
   - Browse through commits of each repo
 
-### Technology Stack
+## Technology Stack
   - [Vuejs](https://vuejs.org/) (for single page application)
   - [Vuex](httpshttps://vuex.vuejs.org/) (for state management for vuejs similar to redux in reactjs)
   - [Vue Test Utils](https://vue-test-utils.vuejs.org/) (vuejs wrapper for testing using jest)
@@ -40,6 +40,11 @@ Currently this application has the following features
   - Webpack (module bundler)
   - Visual Studio Code
 
-### Screenshots of the application
+## Screenshots of the application
 
+#### Search
 ![Search](src/assets/screenshots/search-box.png)
+#### List of Repositories
+![List of Repositories](src/assets/screenshots/list-of-repos.png)
+#### List of Commits
+![List of Commits](src/assets/screenshots/commits.png)
