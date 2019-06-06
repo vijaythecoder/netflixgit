@@ -22,11 +22,4 @@ describe('SearchBox.vue', () => {
     input.setValue('netflix')
     expect(wrapper.vm.username).toBe('netflix')
   })
-
-  it('Input can be typed', () => {
-    expect(wrapper.vm.username).toBe('')
-    const input = wrapper.find('input[type="text"]')
-    input.setValue('netflix')
-    expect(wrapper.vm.username).toBe('netflix')
-  })
 })
