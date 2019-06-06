@@ -120,7 +120,9 @@ export default new Vuex.Store({
      * @param {commit} context
      */
     loadRecentSearches ({ commit }) {
-      commit('LOAD_RECENT_SEARCHES', localStorage.getItem('recentSearches').split(','))
+      if (localStorage.getItem('recentSearches')) {
+        commit('LOAD_RECENT_SEARCHES', localStorage.getItem('recentSearches').split(','))
+      }
     },
 
     /**
