@@ -19,7 +19,7 @@ describe('SearchBox.vue', () => {
     })
   })
 
-  it.only('dispatches "searchOrganization" when input search button is clicked', () => {
+  it('dispatches "searchOrganization" when input search button is clicked', () => {
     const wrapper = shallowMount(SearchBox, { store, localVue })
     const input = wrapper.find('input')
     input.element.value = 'netflix'

@@ -1,14 +1,14 @@
-import { mount, shallowMount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import SearchBox from '@/components/SearchBox.vue'
 
 describe('SearchBox.vue', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = shallowMount(SearchBox)
+    wrapper = mount(SearchBox)
   })
-  // console.log(wrapper.html())
+
   it('renders the correct markup', () => {
-    expect(wrapper.html()).toContain(`<input type="text" placeholder="Type organization username and hit enter @eg: netflix" aria-label="Organization's username" aria-describedby="button-addon2" class="form-control input-search">`)
+    expect(wrapper.html()).toContain(`<input type="text" placeholder="Type organization username and hit enter @eg: netflix" aria-label="Organization's username" class="form-control input-search">`)
   })
 
   // check if there is a button to submit
