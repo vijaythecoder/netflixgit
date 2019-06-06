@@ -12,7 +12,7 @@ window.axios = require('axios')
 
 /* global axios */
 axios.interceptors.request.use(function (config) {
-  config.headers.common['Authorization'] = 'token 30c24c68b96fd699590be03db1aeae1f16b7a034'
+  // config.headers.common['Authorization'] = 'token {your git token}'
   return config
 }, function (error) {
   // Do something with request error
