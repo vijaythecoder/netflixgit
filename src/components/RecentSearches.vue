@@ -1,7 +1,7 @@
 <template>
   <div class="recent-searches" v-if="recentSearches.length > 0">
     Recent Searches:
-    <a href="#" class="badge badge-primary" @click.prevent="searchRecentOrganization(recentSearch)" v-for="recentSearch in recentSearches" :key="recentSearch">
+    <a href="#" class="badge badge-primary" @click.prevent="searchOrganization(recentSearch)" v-for="recentSearch in recentSearches" :key="recentSearch">
       {{ recentSearch }}
     </a>
   </div>
@@ -18,7 +18,8 @@ export default {
   },
   methods: {
     ...mapActions([
-      'loadRecentSearches'
+      'loadRecentSearches',
+      'searchOrganization'
     ])
   },
   mounted () {

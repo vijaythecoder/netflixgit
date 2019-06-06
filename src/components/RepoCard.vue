@@ -15,19 +15,19 @@
         </div>
 
         <div class="repo-stats">
-          <div class="stats-item">
+          <div class="stats-item" title="Stars">
             <i class="fas fa-star"></i>
             {{ repo.stargazers_count }}
           </div>
-          <div class="stats-item">
+          <div class="stats-item" title="Open Issues">
             <i class="far fa-clipboard-list-check"></i>
             {{ repo.open_issues_count }}
           </div>
-          <div class="stats-item">
+          <div class="stats-item" title="Forks">
             <i class="fas fa-utensil-fork"></i>
             {{ repo.forks_count }}
           </div>
-          <div class="stats-item">
+          <div class="stats-item" title="Language" v-if="repo.language">
             <i class="far fa-code"></i>
             {{ repo.language }}
           </div>
