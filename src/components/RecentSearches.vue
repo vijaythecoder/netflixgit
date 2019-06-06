@@ -8,13 +8,22 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'RecentSearches',
   computed: {
     ...mapState([
       'recentSearches'
     ])
+  },
+  methods: {
+    ...mapActions([
+      'loadRecentSearches'
+    ])
+  },
+  mounted () {
+    // load recent searches from localstorage
+    this.loadRecentSearches()
   }
 }
 </script>

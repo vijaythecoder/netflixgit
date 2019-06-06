@@ -29,5 +29,4 @@ describe('SearchBox.vue', () => {
     input.setValue('netflix')
     expect(wrapper.vm.username).toBe('netflix')
   })
-
 })
