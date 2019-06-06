@@ -25,7 +25,7 @@
 
 <script>
 import Navbar from '@/components/Navbar.vue'
-import { mapState } from "vuex";
+import { mapState } from 'vuex'
 
 export default {
   name: 'UserInfo',
@@ -52,7 +52,7 @@ export default {
   display: flex;
   justify-content: space-between;
   border: 1px solid #E6EAEE;
-  
+
   .organization-details {
     display: flex;
     .user-avatar {

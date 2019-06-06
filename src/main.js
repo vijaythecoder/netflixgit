@@ -3,11 +3,14 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './registerServiceWorker'
+import VueTimeago from 'vue-timeago'
+
 require('jquery')
 require('bootstrap')
 
 window.axios = require('axios')
 
+/* global axios */
 axios.interceptors.request.use(function (config) {
   config.headers.common['Authorization'] = 'token 30c24c68b96fd699590be03db1aeae1f16b7a034'
   return config
@@ -18,11 +21,9 @@ axios.interceptors.request.use(function (config) {
 
 Vue.config.productionTip = false
 
-import VueTimeago from 'vue-timeago'
-
 Vue.use(VueTimeago, {
-  name: 'Timeago', // Component name, `Timeago` by default
-  locale: 'en', // Default locale
+  name: 'Timeago',
+  locale: 'en'
 })
 
 new Vue({

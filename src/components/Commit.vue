@@ -49,7 +49,7 @@ export default {
   justify-content: space-between;
   border: 1px solid #E6EAEE;
   margin-bottom: 10px;
-  
+
   .organization-details {
     display: flex;
     .commit-avatar {

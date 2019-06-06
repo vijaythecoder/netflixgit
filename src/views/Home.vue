@@ -1,11 +1,6 @@
 <template>
   <div class="home">
-    <div class="input-group mb-3">
-      <input type="text" class="form-control input-search" @keyup.enter="searchProxy" v-model="username" placeholder="Type organization's username and hit enter @eg: netflix" aria-label="Organization's username" aria-describedby="button-addon2">
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" @click="searchProxy" id="button-addon2">Search</button>
-      </div>
-    </div>
+    <search-box></search-box>
     <recent-searches></recent-searches>
     <user-info></user-info>
 
@@ -40,9 +35,9 @@
 
 <script>
 // @ is an alias to /src
-import Navbar from '@/components/Navbar.vue'
 import Repositories from '@/components/Repositories.vue'
 import UserInfo from '@/components/UserInfo.vue'
+import SearchBox from '@/components/SearchBox.vue'
 import RecentSearches from '@/components/RecentSearches.vue'
 import { mapState, mapActions } from 'vuex'
 
@@ -56,14 +51,10 @@ export default {
     }
   },
   components: {
-    Navbar,
     UserInfo,
     RecentSearches,
-    Repositories
-  },
-  mounted () {
-    // this.username = 'netflix'
-    // this.searchOrganization(this.username)
+    Repositories,
+    SearchBox
   },
   computed: {
     ...mapState({
@@ -74,18 +65,14 @@ export default {
       loading: state => state.loading
     }),
     totalPages () {
-      return Math.ceil(this.organization.public_repos/this.perPage)
+      return Math.ceil(this.organization.public_repos / this.perPage)
     }
   },
   methods: {
     ...mapActions([
       'nextPage',
-      'previousPage',
-      'searchOrganization'
-    ]),
-    searchProxy () {
-      this.searchOrganization(this.username)
-    }
+      'previousPage'
+    ])
   }
 }
 </script>
@@ -123,7 +110,7 @@ hr {
   background: #FFFFFF;
   border: 1px solid #DFE3E9;
   border-radius: 4px;
-  
+
 }
 .alert {
   margin-top: 20px;
@@ -131,4 +118,3 @@ hr {
   border-radius: 6px;
 }
 </style>
-

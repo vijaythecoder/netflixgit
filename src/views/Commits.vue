@@ -12,8 +12,7 @@
 <script>
 import UserInfo from '@/components/UserInfo.vue'
 import Commit from '@/components/Commit.vue'
-import { mapActions, mapState } from "vuex";
-import { setTimeout } from 'timers';
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'Commits',
@@ -35,7 +34,7 @@ export default {
     ])
   },
   mounted () {
-    if(this.recentSearches.length === 0) {
+    if (this.recentSearches.length === 0) {
       this.searchOrganization(localStorage.getItem('recentSearches').split(',')[0])
     }
     let _this = this

@@ -53,15 +53,10 @@
 </template>
 
 <script>
-import Card from '@/components/Card.vue'
-
 export default {
   name: 'RepoCard',
   props: {
     repo: Object
-  },
-  components: {
-    Card
   },
   methods: {
     search () {
@@ -116,7 +111,7 @@ export default {
     font-size: 14px;
     color: #7F8FA4;
   }
-  
+
   .repo-footer {
     display: flex;
     justify-content: space-between;

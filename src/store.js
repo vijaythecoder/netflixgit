@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
-
+/* global axios */
 export default new Vuex.Store({
   state: {
     username: '',
@@ -38,10 +38,10 @@ export default new Vuex.Store({
       state.loading = loading
     },
     ADD_RECENT_SEARCH (state, search) {
-      for( var i = 0; i < state.recentSearches.length; i++){ 
-        if ( state.recentSearches[i] === search) {
-          state.recentSearches.splice(i, 1); 
-          i--;
+      for (var i = 0; i < state.recentSearches.length; i++) {
+        if (state.recentSearches[i] === search) {
+          state.recentSearches.splice(i, 1)
+          i--
         }
       }
       state.recentSearches.unshift(search)
@@ -50,22 +50,21 @@ export default new Vuex.Store({
   },
   actions: {
     nextPage ({ commit, state, dispatch }) {
-      let totalPages = Math.ceil(state.organization.public_repos/state.perPage)
-      if(state.currentPage < totalPages) {
+      let totalPages = Math.ceil(state.organization.public_repos / state.perPage)
+      if (state.currentPage < totalPages) {
         commit('NEXT_PAGE')
         dispatch('getRepositories')
       }
     },
     previousPage ({ commit, state, dispatch }) {
-      if(state.currentPage > 1) {
+      if (state.currentPage > 1) {
         commit('PREVIOUS_PAGE')
         dispatch('getRepositories')
       }
     },
-    searchOrganization({commit, dispatch, state, rootState}, username) {
-      
-      if(username === '') {
-        return 
+    searchOrganization ({ commit, dispatch, state, rootState }, username) {
+      if (username === '') {
+        return
       }
 
       // this.loading = true
@@ -77,38 +76,38 @@ export default new Vuex.Store({
         commit('ADD_RECENT_SEARCH', username)
         dispatch('getRepositories', username)
         // this.fetchRepos()
-      }).catch (error => {
-        if(error.response.status === 404) {
+      }).catch(error => {
+        if (error.response.status === 404) {
           alert('Organization is not found!!')
         }
       })
     },
-    getRepositories({ commit, state}, username) {
-      if(username === undefined) {
+    getRepositories ({ commit, state }, username) {
+      if (username === undefined) {
         username = state.organization.login
       }
 
-      let totalPages = Math.ceil(state.organization.public_repos/state.perPage)
-      if(state.currentPage <= totalPages || state.currentPage === 1) {
+      let totalPages = Math.ceil(state.organization.public_repos / state.perPage)
+      if (state.currentPage <= totalPages || state.currentPage === 1) {
         commit('TOGGLE_LOADING', true)
         // get repositories
         axios.get('https://api.github.com/users/' + username + '/repos?page=' + state.currentPage + '&per_page=' + state.perPage + '&type=all&sort=forks_count&order=asc').then(response => {
-            commit('FETCH_REPOSITORIES', response.data)
-            commit('TOGGLE_LOADING', false)
-        }).catch (error => {
-          if(error.response.status === 404) {
+          commit('FETCH_REPOSITORIES', response.data)
+          commit('TOGGLE_LOADING', false)
+        }).catch(error => {
+          if (error.response.status === 404) {
             alert('Organization is not found!!')
           }
         })
       }
     },
-    getCommits({commit, state}, repo) {
+    getCommits ({ commit, state }, repo) {
       commit('FETCH_COMMITS', [])
       axios.get('https://api.github.com/repos/' + state.organization.login + '/' + repo + '/commits').then(response => {
         commit('FETCH_COMMITS', response.data)
         commit('TOGGLE_LOADING', false)
-      }).catch (error => {
-        if(error.response.status === 404) {
+      }).catch(error => {
+        if (error.response.status === 404) {
           alert('Organization is not found!!')
         }
       })

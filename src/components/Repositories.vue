@@ -10,7 +10,7 @@
 
 <script>
 import RepoCard from '@/components/RepoCard.vue'
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Repositories',

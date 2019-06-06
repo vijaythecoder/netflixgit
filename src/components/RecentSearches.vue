@@ -1,6 +1,6 @@
 <template>
   <div class="recent-searches" v-if="recentSearches.length > 0">
-    Recent Searches: 
+    Recent Searches:
     <a href="#" class="badge badge-primary" @click.prevent="searchRecentOrganization(recentSearch)" v-for="recentSearch in recentSearches" :key="recentSearch">
       {{ recentSearch }}
     </a>
@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex'
 export default {
   name: 'RecentSearches',
   computed: {
@@ -24,7 +24,7 @@ export default {
   margin-bottom: 10px;
   color: #8B93A0;
   font-size: 16px;
-  
+
   .badge-primary {
     background-color: #E8EAF1;
     color: #8D909F;
